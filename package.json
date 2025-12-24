@@ -1,0 +1,21 @@
+{
+  "name": "quick-commands",
+  "version": "1.0.0",
+  "description": "Global commands for React and Backend scaffolding",
+  "type": "module",
+  "bin": {
+    "act": "./act.js",
+    "react": "./react.js",
+    "backend": "./backend.js",
+    "assist": "./Assist.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "^5.6.2",
+    "figlet": "^1.9.4",
+    "fs-extra": "^11.3.3",
+    "inquirer": "^13.1.0",
+    "ora": "^9.0.0"
+  }
+}
