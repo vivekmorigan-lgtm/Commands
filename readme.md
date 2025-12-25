@@ -50,7 +50,8 @@ node index.js
 Or as a global command:
 
 ```bash
-npm install -g ./Commands
+cd Commands
+npm install -g .
 ```
 
 and then run it anywhere 
