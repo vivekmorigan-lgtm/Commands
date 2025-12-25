@@ -7,7 +7,8 @@
     "act": "./act.js",
     "react": "./react.js",
     "backend": "./backend.js",
-    "assist": "./Assist.js"
+    "assist": "./Assist.js",
+    "list": "./list.js"
   },
   "preferGlobal": true,
   "dependencies": {

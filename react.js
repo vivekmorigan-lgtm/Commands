@@ -13,11 +13,9 @@ import inquirer from "inquirer";
 
 const PROJECT_NAME = "react-app";
 
-// __dirname replacement for ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Create project OUTSIDE script folder
 const ROOT_DIR = path.resolve(__dirname, "..");
 const projectPath = path.join(ROOT_DIR, PROJECT_NAME);
 
@@ -28,7 +26,6 @@ const write = (file, content) => {
 };
 
 try {
-  // Banner
   console.log(
     chalk.cyan(
       figlet.textSync("CREATE REACT", { horizontalLayout: "default" })
@@ -42,15 +39,12 @@ try {
 
   const spinner = ora("Creating project structure...").start();
 
-  // Folders
   fs.mkdirSync(projectPath);
   fs.mkdirSync(path.join(projectPath, "src", "components"), { recursive: true });
   fs.mkdirSync(path.join(projectPath, "src", "pages"), { recursive: true });
   fs.mkdirSync(path.join(projectPath, "src", "styles"), { recursive: true });
 
   spinner.text = "Creating files...";
-
-  // Files
   write("index.html", `
 <!DOCTYPE html>
 <html lang="en">
@@ -66,8 +60,6 @@ try {
 </html>
 `.trim());
 
-  spinner.text = "index.html created";
-
   write("src/main.jsx", `
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -81,7 +73,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 `.trim());
   spinner.text = "main.jsx created";
 
-
   write("src/App.jsx", `
 export default function App() {
   return (
@@ -91,8 +82,6 @@ export default function App() {
   );
 }
 `.trim());
-
-  spinner.text = "App.jsx created";
 
   write("vite.config.js", `
 import { defineConfig } from "vite";
@@ -147,7 +136,6 @@ npm run dev
 
   `.trim());
 
-  spinner.text = "index.html created";
   write("src/styles/global.css", `
     *{
     margin: 0;

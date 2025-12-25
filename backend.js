@@ -11,22 +11,13 @@ import boxen from "boxen";
 import ora from "ora";
 import inquirer from "inquirer";
 
-/* ---------------- CONFIG ---------------- */
-
 const PROJECT_NAME = "backend";
-
-/* ------------- ESM HELPERS -------------- */
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/* ----------- PROJECT LOCATION ----------- */
-
-// create project OUTSIDE script folder
 const ROOT_DIR = path.resolve(__dirname, "..");
 const projectPath = path.join(ROOT_DIR, PROJECT_NAME);
-
-/* --------------- UTILS ------------------ */
 
 const write = (file, content) => {
   const full = path.join(projectPath, file);
@@ -34,10 +25,7 @@ const write = (file, content) => {
   fs.writeFileSync(full, content);
 };
 
-/* --------------- MAIN ------------------- */
-
 try {
-  /* Banner */
   console.log(
     chalk.cyan(
       figlet.textSync("CREATE BACKEND", { horizontalLayout: "default" })
@@ -51,14 +39,12 @@ try {
 
   const spinner = ora("Creating backend structure...").start();
 
-  /* Folders */
   fs.mkdirSync(path.join(projectPath, "src", "routes"), { recursive: true });
   fs.mkdirSync(path.join(projectPath, "src", "services"), { recursive: true });
   fs.mkdirSync(path.join(projectPath, "src", "controllers"), { recursive: true });
 
   spinner.text = "Creating files...";
 
-  /* server.js */
   write("src/server.js", `
 import http from "http";
 import chalk from "chalk";
@@ -97,13 +83,11 @@ server.listen(PORT, () => {
     )
   );
 
-  /* .gitignore */
   write(".gitignore", `
 node_modules
 .env
 `.trim());
 
-  /* README */
   write("README.md", `
 # Backend API
 
@@ -125,8 +109,6 @@ npm run dev
   execSync('git commit -m "Initial commit: Backend setup"', { cwd: projectPath, stdio: "inherit" });
 
   spinner.succeed("Backend project created!");
-
-  /* -------- ASK SYSTEM -------- */
 
   const { runNow } = await inquirer.prompt([
     {

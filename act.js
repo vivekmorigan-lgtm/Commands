@@ -11,25 +11,20 @@ import boxen from "boxen";
 import ora from "ora";
 import inquirer from "inquirer";
 
-// ---------------- CONFIG ----------------
 const PROJECT_NAME = "actors-project";
 
-// __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Create project OUTSIDE script folder
 const ROOT_DIR = path.resolve(__dirname, "..");
 const projectPath = path.join(ROOT_DIR, PROJECT_NAME);
 
-// Helper
 const write = (file, content) => {
   const full = path.join(projectPath, file);
   fs.mkdirSync(path.dirname(full), { recursive: true });
   fs.writeFileSync(full, content);
 };
 
-// ---------------- MAIN ----------------
 async function main() {
   console.log(
     chalk.cyan(figlet.textSync("CREATE ACTOR", { horizontalLayout: "default" }))
@@ -42,7 +37,6 @@ async function main() {
 
   const spinner = ora("Creating project structure...").start();
 
-  // Folders
   fs.mkdirSync(projectPath);
   fs.mkdirSync(path.join(projectPath, "actors"));
   fs.mkdirSync(path.join(projectPath, "scrapers"));
@@ -50,7 +44,6 @@ async function main() {
 
   spinner.text = "Creating files...";
 
-  // Files
   write(
     "actors/example.actor.js",
     `
@@ -118,7 +111,6 @@ Actors & scrapers project.
 
   spinner.succeed("Project files created!");
 
-  // ---------------- GIT PROMPT ----------------
   const { useGit } = await inquirer.prompt([
     {
       type: "confirm",
@@ -156,7 +148,6 @@ ${chalk.cyan("Next steps:")}
   );
 }
 
-// ---------------- RUN ----------------
 main().catch((err) => {
   console.error(chalk.red("❌ Failed to create project"));
   console.error(err);
