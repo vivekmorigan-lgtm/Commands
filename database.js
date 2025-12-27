@@ -35,7 +35,7 @@ async function setupMongoDB() {
   const fullPath = path.resolve(ROOT_DIR, projectPath);
 
   if (!fs.existsSync(fullPath)) {
-    console.log(chalk.red(`❌ Project path not found: ${projectPath}`));
+    console.log(chalk.red(` Project path not found: ${projectPath}`));
     return;
   }
 
@@ -149,7 +149,7 @@ async function setupSupabase() {
   const fullPath = path.resolve(ROOT_DIR, projectPath);
 
   if (!fs.existsSync(fullPath)) {
-    console.log(chalk.red(`❌ Project path not found: ${projectPath}`));
+    console.log(chalk.red(` Project path not found: ${projectPath}`));
     return;
   }
 
@@ -275,7 +275,7 @@ async function setupFirebase() {
   const fullPath = path.resolve(ROOT_DIR, projectPath);
 
   if (!fs.existsSync(fullPath)) {
-    console.log(chalk.red(`❌ Project path not found: ${projectPath}`));
+    console.log(chalk.red(` Project path not found: ${projectPath}`));
     return;
   }
 
@@ -402,6 +402,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(chalk.red("❌ Error:"), err.message);
+  console.error(chalk.red(" Error:"), err.message);
   process.exit(1);
 });

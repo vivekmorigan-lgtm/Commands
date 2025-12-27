@@ -8,7 +8,8 @@
     "react": "./react.js",
     "backend": "./backend.js",
     "assist": "./Assist.js",
-    "list": "./list.js"
+    "list": "./list.js",
+    "discord": "./discord.js"
   },
   "preferGlobal": true,
   "dependencies": {
