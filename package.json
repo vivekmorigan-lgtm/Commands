@@ -9,7 +9,11 @@
     "backend": "./backend.js",
     "assist": "./Assist.js",
     "list": "./list.js",
-    "discord": "./discord.js"
+    "discord": "./discord.js",
+    "database": "./database.js",
+    "docker": "./docker.js",
+    "fullstack": "./fullstack.js",
+    "version": "./version.js"
   },
   "preferGlobal": true,
   "dependencies": {
