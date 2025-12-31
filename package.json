@@ -1,7 +1,7 @@
 {
   "name": "quick-commands",
-  "version": "1.0.0",
-  "description": "Global commands for React and Backend scaffolding",
+  "version": "0.0.9",
+  "description": "Global commands for quick project scaffolding and setup.",
   "type": "module",
   "bin": {
     "act": "./act.js",

@@ -1,7 +1,4 @@
 #!/bin/sh
-# This script bumps the patch version in package.json on every commit
-# and stages the change automatically.
-
 PKG=package.json
 if [ -f $PKG ]; then
   # Use jq if available, else fallback to node
